@@ -1,0 +1,16 @@
+imports:
+    - { resource: webservices_conf.yml }
+    - { resource: end_points.yml }
+
+services:
+    app.provider.factory:
+        class: AppBundle\Providers\ProviderFactory
+        arguments: [ @guzzle.client ]
+    app.provider.instagram.class:
+        class: AppBundle\Providers\InstagramProvider
+        factory_service: app.provider.factory
+        factory_method: createInstagramProvider
+        arguments: [ %instagram% ]
+    app.service.location:
+        class: AppBundle\Services\Location
+        arguments: [ @app.provider.instagram.class, %location% ]

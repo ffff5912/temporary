@@ -1,0 +1,13 @@
+AreaPhoto/web/bundles/
+AreaPhoto/app/bootstrap.php.cache
+AreaPhoto/app/cache/*
+AreaPhoto/app/config/parameters.yml
+AreaPhoto/app/logs/*
+AreaPhoto/!app/cache/.gitkeep
+AreaPhoto/!app/logs/.gitkeep
+AreaPhoto/app/phpunit.xml
+AreaPhoto/build/
+AreaPhoto/vendor/
+AreaPhoto/bin/
+AreaPhoto/composer.phar
+AreaPhoto/src/AppBundle/Resources/config/webservices_conf.yml
