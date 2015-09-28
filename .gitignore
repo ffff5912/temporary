@@ -1,4 +1,5 @@
 AreaPhoto/web/bundles/
+AreaPhoto/web/js/bootstrap*
 AreaPhoto/app/bootstrap.php.cache
 AreaPhoto/app/cache/*
 AreaPhoto/app/config/parameters.yml
@@ -11,3 +12,5 @@ AreaPhoto/vendor/
 AreaPhoto/bin/
 AreaPhoto/composer.phar
 AreaPhoto/src/AppBundle/Resources/config/webservices_conf.yml
+AreaPhoto/src/AppBundle/Resources/public/js/build
+AreaPhoto/node_modules

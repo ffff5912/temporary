@@ -1,1 +1,20 @@
-Hello !
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 101 Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link href="{{ asset('css/bootstrap.css') }}" media="screen" rel="stylesheet">
+        <link href="{{ asset('bundles/app/css/area_photo.css') }}" rel="stylesheet">
+        {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+    </head>
+
+    <body>
+        <div class="map-embed">
+        	<div id="map-canvas"></div>
+        </div>
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj7Q79EBBC6RrHpGixxrFTUThs94sxUwA"></script>
+        <script src="{{ asset('bundles/app/js/build/bundle.js') }}"></script>
+    </body>
+</html>
