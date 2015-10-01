@@ -13,7 +13,7 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/AppBundle/Resources/public/js/*.{js,jsx}', ['browserify']);
+  gulp.watch('./src/AppBundle/Resources/public/js/**/*.{js,jsx}', ['browserify']);
 });
 
 gulp.task('default', ['browserify', 'watch']);
