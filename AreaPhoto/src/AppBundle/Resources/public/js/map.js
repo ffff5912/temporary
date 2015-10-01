@@ -3,12 +3,11 @@ var MapAction = require('./actions/map_action.js');
 var MediaStore = require('./stores/media_store.js');
 
 var event_emitter = new EventEmitter();
-var media_store = new MediaStore(event_emitter)
+var media_store = new MediaStore(event_emitter);
 var action = new MapAction(event_emitter);
 
 var Map = (function() {
     function Map(action, media_store) {
-        this.map;
         this.action = action;
         this.media_store = media_store;
     }
