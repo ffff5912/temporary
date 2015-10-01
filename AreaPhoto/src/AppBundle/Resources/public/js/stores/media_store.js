@@ -1,11 +1,9 @@
 var Request = require('superagent');
-var EventEmitter = require('../event_emitter.js');
 require('superagent-jsonp')(Request);
 
-var MediaStore = (function(EventEmitter) {
+var MediaStore = (function() {
     function MediaStore(dispatcher) {
         this.url;
-        EventEmitter.call(this);
         dispatcher.on('fetch', this.find.bind(this));
     }
 
@@ -22,6 +20,6 @@ var MediaStore = (function(EventEmitter) {
     };
 
     return MediaStore;
-})(EventEmitter);
+})();
 
 module.exports = MediaStore;
