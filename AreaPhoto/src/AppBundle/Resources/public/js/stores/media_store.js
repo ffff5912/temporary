@@ -8,14 +8,17 @@ var MediaStore = (function() {
     }
 
     MediaStore.prototype.find = function(data) {
-        Request.get(this.url).query({
-            lat: data.lat,
-            ing: data.ing
-        }).jsonp().end(function(err, res) {
-            if (err) {
-                throw err;
-            }
-            data.callback(res);
+        Request
+            .get(this.url)
+            .query({
+                lat: data.latLng.H,
+                lng: data.latLng.L
+            })
+            .end(function(err, res) {
+                if (err) {
+                    throw err;
+                }
+                data.callback(res);
         });
     };
 

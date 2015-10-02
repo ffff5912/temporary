@@ -16,9 +16,10 @@ class Location implements WebServiceInterface
         $this->end_points = $end_points;
     }
 
-    public function execute(array $query = [], array $parameter = [])
+    public function execute($lat, $lng, $distance = 200)
     {
-        $location_id = $this->search($parameter['lat'], $parameter['ing'], $parameter['distance']);
+        $location_id = $this->search($lat, $lng, $distance);
+
         $response = $this->fetch($location_id, $query);
 
         return $response;
@@ -33,7 +34,9 @@ class Location implements WebServiceInterface
         return $response->json();
     }
 
-    public function search($lat, $ing, $distance)
+    public function search($lat, $lng, $distance)
     {
+        $query['query'] = ['lat' => $lat, 'lng' => $lng, 'distance' => $distance];
+        return $this->instagram_provider->get($this->end_points['search'], $query);
     }
 }

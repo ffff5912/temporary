@@ -16,6 +16,6 @@ class MediaController extends FOSRestController implements ClassResourceInterfac
     public function getLocationAction(Request $request)
     {
         $location = $this->get('app.service.location');
-        $location->fetch($location_id);
+        $location->execute($request->query->get('lat'), $request->query->get('lng'));
     }
 }

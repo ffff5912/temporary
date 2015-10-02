@@ -3,9 +3,12 @@ imports:
     - { resource: end_points.yml }
 
 services:
+    client:
+        class: Guzzle\Http\Client
+        arguments: []
     app.provider.factory:
         class: AppBundle\Providers\ProviderFactory
-        arguments: [ @guzzle.client ]
+        arguments: [ @client ]
     app.provider.instagram.class:
         class: AppBundle\Providers\InstagramProvider
         factory_service: app.provider.factory

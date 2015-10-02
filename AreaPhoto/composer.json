@@ -36,7 +36,8 @@
         "misd/guzzle-bundle": "~1.0",
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.0.*",
-        "jquery/jquery":  "1.11.*"
+        "jquery/jquery":  "1.11.*",
+        "guzzle/guzzle": "~3.9"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

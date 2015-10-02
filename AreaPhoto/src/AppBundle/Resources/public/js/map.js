@@ -13,8 +13,7 @@ var Map = (function() {
     }
 
     Map.prototype.onLoad = function() {
-        google.maps.event.addDomListener(window, 'load', this.initialize.call(this));
-        google.maps.event.addListener(this.map, 'click', this.action.fetch.bind(this.action));
+        google.maps.event.addDomListener(window, 'load', this.initialize.bind(this));
     };
 
     Map.prototype.initialize = function() {
@@ -25,6 +24,7 @@ var Map = (function() {
             center: latlng ,
         };
         this.map = new google.maps.Map(canvas, mapOptions);
+        this.map.addListener('click', this.action.fetch.bind(this.action));
     };
 
     return Map;

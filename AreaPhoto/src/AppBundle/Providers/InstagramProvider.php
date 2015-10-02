@@ -21,11 +21,13 @@ class InstagramProvider implements ProviderInterface
 
     public function get($end_point, array $query)
     {
-        $client->get($query);
+        $query['query']['access_token'] = $this->access_token;
+        $request = $this->client->get($end_point, [], $query);
+
+        return $request->send()->json();
     }
 
     public function post($end_point, array $query)
     {
-        $client->post($query);
     }
 }
