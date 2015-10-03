@@ -3,6 +3,8 @@
 namespace AppBundle\Services;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Guzzle\Http\Exception\HttpException;
+use Guzzle\Common\Exception\RuntimeException;
 use AppBundle\Providers\ProviderInterface;
 
 class Location implements WebServiceInterface
@@ -16,22 +18,24 @@ class Location implements WebServiceInterface
         $this->end_points = $end_points;
     }
 
-    public function execute($lat, $lng, $distance = 200)
+    public function execute($lat, $lng, $distance = 100)
     {
-        $location_id = $this->search($lat, $lng, $distance);
+        try {
+            $location = $this->search($lat, $lng, $distance);
+            $media = array_map(function ($location) {
+                return $this->fetch($location['id']);
+            }, $location['data']);
 
-        $response = $this->fetch($location_id, $query);
-
-        return $response;
+            return $media[0];
+        } catch (HttpException $e) {
+            throw new RuntimeException(sprintf('The HttpException. BAD REQUEST'));
+        }
     }
 
     public function fetch($location_id, array $query = [])
     {
         $end_point = sprintf($this->end_points['recent'], $location_id);
-        $request = $this->instagram_provider->get($end_point, $query);
-        $response = $request->send();
-
-        return $response->json();
+        return $this->instagram_provider->get($end_point, $query);
     }
 
     public function search($lat, $lng, $distance)
