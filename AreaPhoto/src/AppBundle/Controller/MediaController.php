@@ -28,6 +28,11 @@ class MediaController extends FOSRestController implements ClassResourceInterfac
         return $this->handleView($view);
     }
 
+    /**
+     * Returns the headers.
+     *
+     * @return array An array of headers
+     */
     private function getResponseHeader()
     {
         $response = new Response();

@@ -1,8 +1,22 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    <div class="map-embed">
-        <div id="map-canvas"></div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    AreaPhoto
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="map-embed">
+            <div id="map-canvas"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="photo_box"></div>
     </div>
 {% endblock %}
 
