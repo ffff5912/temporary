@@ -26,7 +26,7 @@ class Location implements WebServiceInterface
                 return $this->fetch($location['id']);
             }, $location['data']);
 
-            return $media[0];
+            return $media;
         } catch (HttpException $e) {
             throw new RuntimeException(sprintf('The HttpException. BAD REQUEST'));
         }
