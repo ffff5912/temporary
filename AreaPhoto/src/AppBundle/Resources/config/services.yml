@@ -17,3 +17,8 @@ services:
     app.service.location:
         class: AppBundle\Services\Location
         arguments: [ @app.provider.instagram.class, %location% ]
+    app.twig.csrf_twig_extension:
+        class: AppBundle\Twig\CsrfTwigExtension
+        arguments: ["@form.csrf_provider"]
+        tags:
+            - { name: twig.extension }
