@@ -1,7 +1,3 @@
-var Request = require('superagent');
-require('superagent-csrf')(Request);
-require('superagent-jsonp')(Request);
-
 var MediaStore = (function() {
     function MediaStore(dispatcher) {
         this.url = '';
@@ -10,18 +6,18 @@ var MediaStore = (function() {
     }
 
     MediaStore.prototype.find = function(data) {
-        Request.get(this.url).csrf(this.token).query({
-            lat: data.latLng.H,
-            lng: data.latLng.L
-        }).jsonp().end(function(err, res) {
-            if (err) {
-                throw err;
+        var self = this;
+        $.ajax({
+            url: self.url,
+            type: 'GET',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', self.token)},
+            data: {lat: data.latLng.J, lng: data.latLng.M},
+            success: function(response) {
+                console.log(response);
             }
-            data.setMedia(res);
         });
+        return MediaStore;
     };
-
-    return MediaStore;
 })();
 
 module.exports = MediaStore;
