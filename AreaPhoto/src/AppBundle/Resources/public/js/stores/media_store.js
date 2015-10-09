@@ -13,11 +13,11 @@ var MediaStore = (function() {
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', self.token)},
             data: {lat: data.latLng.J, lng: data.latLng.M},
             success: function(response) {
-                console.log(response);
+                data.callback(response);
             }
         });
-        return MediaStore;
     };
+    return MediaStore;
 })();
 
 module.exports = MediaStore;

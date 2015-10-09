@@ -1,16 +1,18 @@
 var React = require('react');
 
 var Media = React.createClass({
-    getInitialState: function() {
-        return {
-            map: "",
-            media: []
-        };
-    },
-    setMap: function(map) {
-        this.setState({map: map});
+    render: function() {
+        var rows = this.props.media.map(function(value) {
+            return (
+                <li>{value}</li>
+            );
+        });
+        return (
+            <div>
+                <ul>{rows}</ul>
+            </div>
+        );
     }
-
 });
 
-exports.module = new Media();
+module.exports = Media;

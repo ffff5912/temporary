@@ -29,7 +29,7 @@ var Map = (function() {
     };
 
     Map.prototype.onClick = function(data) {
-        data.setMedia = this.setMedia;
+        data.callback = this.setMedia;
         this.action.fetch(data);
     };
 
