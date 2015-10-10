@@ -45,7 +45,9 @@ assetic:
     filters:
         less:
             node: /usr/local/bin/node
-            node_paths: [/usr/local/lib/node_modules]
+            node_paths:
+                - "%karnel.root.dir%/../node_modules"
+                - "/usr/local/lib/node_modules"
             apply_to: "\.less$"
         cssrewrite: ~
         #closure:

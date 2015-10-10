@@ -1,6 +1,9 @@
 {
   "name": "areaphoto",
   "version": "0.0.1",
+  "repository": {
+      "private": true
+  },
   "devDependencies": {
     "browserify": "^10.2.1",
     "babelify": "^6.1.1",
@@ -13,6 +16,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "less": "~1.7"
   }
 }

@@ -22,3 +22,9 @@ services:
         arguments: ["@form.csrf_provider"]
         tags:
             - { name: twig.extension }
+    app.event_listener.api_request:
+        class: AppBundle\ApiRequestEvent
+        arguments: [ "@service.container" ]
+        tags:
+            - { name: karnel.event_listener, event: request, method: onRequest}
+            - { name: kernel.event_listener, event: kernel.terminate, method: onKernelTerminate }
