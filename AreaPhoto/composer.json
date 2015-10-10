@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.6.0",
         "symfony/symfony": "~2.7@beta",
         "doctrine/orm": "~2.2,>=2.2.3,<2.5",
         "doctrine/dbal": "<2.5",
@@ -37,10 +37,10 @@
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.0.*",
         "jquery/jquery":  "1.11.*",
-        "guzzle/guzzle": "~3.9"
+        "guzzle/guzzle": "~3.9",
+        "sensio/generator-bundle": "~2.3",
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
         "phpunit/phpunit": "4.8.*"
     },
     "scripts": {
@@ -76,8 +76,16 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative",
+        "incenteev/composer-parameter-handler": "~2.0",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "file": "src/AppBundle/Resources/config/webservices_conf.yml",
+            "env-map": {
+                "access_token": "API_ACCESS_TOKEN",
+                "client_id": "API_CLIENT_ID",
+                "client_secret": "API_CLIENT_SECRET",
+                "redirect_url": "API_REDIRECT_URL"
+            }
         },
         "branch-alias": {
             "dev-master": "2.7-dev"
