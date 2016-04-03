@@ -24,6 +24,14 @@ sudo sed -i -e "/AddType text\/html \.php/i\AddType application\/x-httpd-php \.p
 
 sudo service httpd restart
 
+# install zsh
+sudo yum -y install zsh
+
+# install fish
+cd /etc/yum.repos.d/
+sudo wget http://download.opensuse.org/repositories/shells:fish:release:2/CentOS_6/shells:fish:release:2.repo
+sudo yum -y install fish
+
 echo ----------------------------------------------------------------------------
 echo etc FINISH
 echo ----------------------------------------------------------------------------
