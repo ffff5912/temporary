@@ -3,9 +3,6 @@
 ##### yum update all
 sudo yum -y update
 
-# fastestmirror
-# echo "prefer=ftp.jaist.ac.jp" >> /etc/yum/pluginconf.d/fastestmirror.conf
-
 ##### edit resolv.conf
 sudo sed -i -e "1i options single-request-reopen" /etc/resolv.conf
 

@@ -11,9 +11,6 @@ sudo sed -i -e "9i [mysqldump]" /etc/my.cnf
 sudo sed -i -e "10i default-character-set=utf8" /etc/my.cnf
 sudo service mysqld start
 sudo chkconfig mysqld on
-##### TODO manual set root user password #####
-## /usr/bin/mysql_secure_installation       ##
-##############################################
 
 echo ----------------------------------------------------------------------------
 echo Mysql FINISH
