@@ -26,8 +26,8 @@ sudo sed -i -e "s/enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sudo rpm -Uvh remi-release-6.rpm
 
-##### install 
-sudo yum install -y git vim
+##### install
+sudo yum install -y git vim gcc-c++
 
 echo ----------------------------------------------------------------------------
 echo Base FINISH

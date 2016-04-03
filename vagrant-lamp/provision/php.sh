@@ -13,7 +13,10 @@ sudo sed -i -e "s|;mbstring.http_input = auto|mbstring.http_input = auto|" /etc/
 sudo sed -i -e "s|;mbstring.detect_order = auto|mbstring.detect_order = UTF-8,SJIS,EUC-JP,JIS,ASCII|" /etc/php.ini
 sudo sed -i -e "s|expose_php = On|expose_php = Off|" /etc/php.ini
 sudo sed -i -e "s|;date.timezone =|date.timezone = Asia/Tokyo|" /etc/php.ini
+# sudo echo "extension=memcached.so" >> /etc/php.ini
+sudo sh -c "echo 'extension=memcached.so' >> /etc/php.ini"
 
+# sh -c "echo 'hoge'
 sudo service httpd restart
 
 # sudo rm -rf /var/www/html
